@@ -14,7 +14,7 @@
     <meta name="salesforce-allowed-domains" content="https://<?php echo getenv('SALESFORCE_COMMUNITY_URL');?>">
     <meta name="salesforce-client-id" content="<?php echo getenv('SALESFORCE_CLIENT_ID');?>">
     <meta name="salesforce-redirect-uri" content="https://<?php echo getenv('SALESFORCE_HEROKUAPP_URL');?>/_callback.php">
-  	<meta name="salesforce-mode" content="modal">
+  	<meta name="salesforce-mode" content="inline">
   	<meta name="salesforce-target" content="#signinlink">
   	<meta name="salesforce-save-access-token" content="true">
     <meta name="salesforce-forgot-password-enabled" content="true">
@@ -24,7 +24,7 @@
 
 	  <link href="https://<?php echo getenv('SALESFORCE_COMMUNITY_URL');?>/servlet/servlet.loginwidgetcontroller?type=css" rel="stylesheet" type="text/css" />
     <script src="https://<?php echo getenv('SALESFORCE_COMMUNITY_URL');?>/servlet/servlet.loginwidgetcontroller?type=javascript_widget" async defer></script>
-  </head>
+    </head>
 
   <body>
   	<div id="signinlink" style="position: absolute; top: 20px;right: 20px;"></div>
