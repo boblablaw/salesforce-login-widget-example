@@ -9,7 +9,7 @@
     <link href="reset.css" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,600" type="text/css" rel="stylesheet">
     <link href="main.css" rel="stylesheet">
-	
+
     <meta name="salesforce-community" content="https://<?php echo getenv('SALESFORCE_COMMUNITY_URL');?>">
     <meta name="salesforce-client-id" content="<?php echo getenv('SALESFORCE_CLIENT_ID');?>">
     <meta name="salesforce-redirect-uri" content="https://<?php echo getenv('SALESFORCE_HEROKUAPP_URL');?>/_callback.php">
@@ -19,10 +19,10 @@
 	<meta name="salesforce-save-access-token" content="true">
     <meta name="salesforce-login-handler" content="onLogin">
     <meta name="salesforce-logout-handler" content="onLogout">
-	<link href="https://<?php echo getenv('SALESFORCE_COMMUNITY_URL');?>/resource/salesforce_login_widget_css" rel="stylesheet" type="text/css" /> 
-    <script src="https://<?php echo getenv('SALESFORCE_COMMUNITY_URL');?>/resource/salesforce_login_widget_js_min" async defer></script>
+	<link href="https://<?php echo getenv('SALESFORCE_COMMUNITY_URL');?>/servlet/servlet.loginwidgetcontroller?type=css" rel="stylesheet" type="text/css" />
+    <script src="https://<?php echo getenv('SALESFORCE_COMMUNITY_URL');?>/servlet/servlet.loginwidgetcontroller?type=javascript_widget" async defer></script>
   </head>
-  
+
   <body>
   	<div id="sign-in-link" style="position: absolute; top: 20px;right: 20px;"></div>
     <header>
@@ -39,7 +39,7 @@
     </header>
     <section class="textured-section">
       <h1>Curated Coffee Components</h1>
-      
+
 
       <ul class="products">
         <li>
@@ -49,7 +49,7 @@
         </li>
         <li>
           <img class="product-image" src="images/products/071715_Heroku_3263-.jpg" alt="">
-          <h3 class="product-name">MSR Reactor 2.5L Stove System</h3>          
+          <h3 class="product-name">MSR Reactor 2.5L Stove System</h3>
           <div class="product-button"><a id="reactor_link" class="btn btn-hot" href="#" onclick="SFIDWidget.login()">Login for more info</a></div>
         </li>
         <li>
@@ -119,38 +119,38 @@
       </div>
 
     </footer>
-	
 
-	
+
+
 	<script>
 
 
 	function onLogin(identity) {
-		
-		var targetDiv = document.querySelector(SFIDWidget.config.target);	
-		
-		var avatar = document.createElement('a'); 
+
+		var targetDiv = document.querySelector(SFIDWidget.config.target);
+
+		var avatar = document.createElement('a');
 	 	avatar.href = "javascript:showIdentityOverlay();";
-		
-		
-		var img = document.createElement('img'); 
-	 	img.src = identity.photos.thumbnail; 
+
+
+		var img = document.createElement('img');
+	 	img.src = identity.photos.thumbnail;
 		img.className = "sfid-avatar";
-	
-		var username = document.createElement('span'); 
+
+		var username = document.createElement('span');
 		username.innerHTML = identity.username;
 		username.className = "sfid-avatar-name";
-	
-		var iddiv = document.createElement('div'); 
+
+		var iddiv = document.createElement('div');
 	 	iddiv.id = "sfid-identity";
-		
+
 		avatar.appendChild(img);
 		avatar.appendChild(username);
-		iddiv.appendChild(avatar);		
-	
+		iddiv.appendChild(avatar);
+
 		targetDiv.innerHTML = '';
-		targetDiv.appendChild(iddiv);	
-		
+		targetDiv.appendChild(iddiv);
+
 		var aero = document.getElementById("aero_link");
 		aero.href = "/datasheets/AeroPress-Instr-English-Rev.-D2.pdf";
 		aero.innerHTML = 'Datasheet';
@@ -162,22 +162,22 @@
 		var chemex = document.getElementById("chemex_link");
 		chemex.href = "/datasheets/2014_ChemexBrewGuide.pdf";
 		chemex.innerHTML = 'Datasheet';
-		
+
 	}
-	
-	
+
+
 	function showIdentityOverlay() {
 
-		var lightbox = document.createElement('div'); 
+		var lightbox = document.createElement('div');
 	 	lightbox.className = "sfid-lightbox";
 	 	lightbox.id = "sfid-login-overlay";
 		lightbox.setAttribute("onClick", "SFIDWidget.cancel();");
-		
-		var wrapper = document.createElement('div'); 
+
+		var wrapper = document.createElement('div');
 	 	wrapper.id = "identity-wrapper";
 		wrapper.onclick = function(event) {
 		    event = event || window.event // cross-browser event
-    
+
 		    if (event.stopPropagation) {
 		        // W3C standard variant
 		        event.stopPropagation()
@@ -186,8 +186,8 @@
 		        event.cancelBubble = true
 		    }
 		}
-		
-		var content = document.createElement('div'); 
+
+		var content = document.createElement('div');
 	 	content.id = "sfid-content";
 
 		var community = document.createElement('a');
@@ -198,34 +198,34 @@
 		content.appendChild(community);
 
 
-		var logout = document.createElement('a'); 
+		var logout = document.createElement('a');
 	 	logout.href = "javascript:SFIDWidget.logout();SFIDWidget.cancel();";
 		logout.innerHTML = "logout";
 		logout.setAttribute("style", "float:right");
 		content.appendChild(logout);
-		
-		var t = document.createElement('div'); 
+
+		var t = document.createElement('div');
 	 	t.id = "sfid-token";
 		t.className = "sfid-mb24";
-		
-		var p = document.createElement('pre'); 
+
+		var p = document.createElement('pre');
 	 	p.innerHTML = JSON.stringify(SFIDWidget.openid_response, undefined, 2);
 		t.appendChild(p);
-		
+
 		content.appendChild(t);
 
-		
+
 		wrapper.appendChild(content);
 		lightbox.appendChild(wrapper);
-		
-		document.body.appendChild(lightbox);	
-		
+
+		document.body.appendChild(lightbox);
+
 	}
-	
-	
+
+
 	function onLogout() {
 		SFIDWidget.init();
-		
+
 		var aero = document.getElementById("aero_link");
 		aero.href = "#";
 		aero.innerHTML = 'Login for more info';
@@ -242,6 +242,6 @@
 
 
 	</script>
-	
+
   </body>
 </html>
