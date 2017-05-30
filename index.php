@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>FIX, curated coffee components</title>
+    <title>Roche Diagnostics</title>
 
     <link href="reset.css" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,600" type="text/css" rel="stylesheet">
@@ -34,7 +34,7 @@
         <div class="element-middle">
           <img class="logo" src="images/roche-logo.png" alt="Fix">
           <br>
-          <span class="logo-text">Fine Coffee Kits</span>
+          <span class="logo-text">Roche Diagnostics</span>
         </div>
         <div class="element-right">
         </div>
