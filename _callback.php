@@ -13,9 +13,9 @@
     <meta name="salesforce-login-handler" content="onLogin">
     <meta name="salesforce-logout-handler" content="onLogout">
     <script src="https://<?php echo getenv('SALESFORCE_COMMUNITY_URL');?>/servlet/servlet.loginwidgetcontroller?type=javascript_widget" async defer></script>
-    <script
+    <!--<script
     src="https://embeddedlogin-developer-edition.na99.force.com/demo/servlet/servlet.loginwidgetcontroller?type=javascipt_widget"
-    async defer></script>
+    async defer></script> -->
   </head>
   <body></body>
 </html>
